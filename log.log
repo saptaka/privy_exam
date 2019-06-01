@@ -1,0 +1,3 @@
+INFO : 2019/06/01 17:07:25.432733 main.go:52: Database Connected!
+ERROR: 2019/06/01 17:07:30.754883 InsertProduct.go:16: unknown json format invalid character '"' after object key:value pair
+INFO : 2019/06/01 17:07:57.088461 InsertProduct.go:29: Data Inserted Succesfully
