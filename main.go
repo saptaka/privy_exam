@@ -54,9 +54,13 @@ func main() {
 	api.POST("/insertCategory", InsertCategory)
 	api.POST("/insertImage", InsertImage)
 
-	api.POST("/setProduct/:column", UpdateProduct)
-	api.POST("/setCategory/:column", UpdateCategory)
-	api.POST("/settImage/:column", UpdateImage)
+	api.PUT("/setProduct/:column", UpdateProduct)
+	api.PUT("/setCategory/:column", UpdateCategory)
+	api.PUT("/setImage/:column", UpdateImage)
+
+	api.DELETE("/delProduct/:id", DeleteProduct)
+	api.DELETE("/delCategory/:id", DeleteCategory)
+	api.DELETE("/deltImage/:id", DeleteImage)
 
 	api.Run(":8898")
 

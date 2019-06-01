@@ -30,3 +30,14 @@ ERROR: 2019/06/01 21:08:33.993253 UpdateProduct.go:14: unknown json format json:
 INFO : 2019/06/01 21:10:32.326724 main.go:42: Database Connected!
 INFO : 2019/06/01 21:10:52.131130 main.go:42: Database Connected!
 INFO : 2019/06/01 21:11:21.997432 main.go:42: Database Connected!
+INFO : 2019/06/01 23:07:27.263003 main.go:42: Database Connected!
+INFO : 2019/06/01 23:08:28.600994 main.go:42: Database Connected!
+INFO : 2019/06/01 23:09:06.513504 main.go:42: Database Connected!
+INFO : 2019/06/01 23:09:55.168461 main.go:42: Database Connected!
+INFO : 2019/06/01 23:10:07.399592 main.go:42: Database Connected!
+INFO : 2019/06/01 23:11:02.710518 main.go:42: Database Connected!
+INFO : 2019/06/01 23:13:36.450778 main.go:42: Database Connected!
+INFO : 2019/06/01 23:16:06.096373 main.go:42: Database Connected!
+INFO : 2019/06/01 23:17:58.811997 main.go:42: Database Connected!
+INFO : 2019/06/01 23:18:09.655911 main.go:42: Database Connected!
+INFO : 2019/06/01 23:21:00.232821 main.go:42: Database Connected!

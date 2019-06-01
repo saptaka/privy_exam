@@ -7,7 +7,7 @@ import (
 
 func UpdateCategory(c *gin.Context) {
 	var data CategoryJSON
-	var category CategoryJSON
+	var category Category
 
 	errBindJSON := c.BindJSON(&data)
 	if errBindJSON != nil {
@@ -15,8 +15,6 @@ func UpdateCategory(c *gin.Context) {
 	} else {
 		if c.Param("column") == "name" {
 			db.Model(&category).Where("id = ?", data.ID).UpdateColumn("name", data.Name)
-		} else if c.Param("column") == "description" {
-			db.Model(&category).Where("id = ?", data.ID).UpdateColumn("description", data.Description)
 		} else if c.Param("column") == "enable" {
 			db.Model(&category).Where("id = ?", data.ID).UpdateColumn("enable", data.Enable)
 		} else if c.Param("column") == "all" {

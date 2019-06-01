@@ -17,9 +17,8 @@ func InsertCategory(c *gin.Context) {
 	} else {
 
 		category := Category{
-			Name:        data.Name,
-			Description: data.Description,
-			Enable:      data.Enable,
+			Name:   data.Name,
+			Enable: data.Enable,
 		}
 
 		db.Create(&category)

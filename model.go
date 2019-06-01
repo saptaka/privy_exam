@@ -15,17 +15,15 @@ type ProductJSON struct {
 }
 
 type Category struct {
-	ID          int8 `gorm:"primary_key"`
-	Name        string
-	Description string
-	Enable      bool
+	ID     int8 `gorm:"primary_key"`
+	Name   string
+	Enable bool
 }
 
 type CategoryJSON struct {
-	ID          int8   `json:"id"`
-	Name        string `json:"name"`
-	Description string `json:"description"`
-	Enable      bool   `json:"enable"`
+	ID     int8   `json:"id"`
+	Name   string `json:"name"`
+	Enable bool   `json:"enable"`
 }
 
 type Image struct {

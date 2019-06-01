@@ -20,7 +20,7 @@ func UpdateProduct(c *gin.Context) {
 		} else if c.Param("column") == "enable" {
 			db.Model(&product).Where("id = ?", data.ID).UpdateColumn("enable", data.Enable)
 		} else if c.Param("column") == "all" {
-			db.Model(&product).Where("id = ?", data.ID).UpdateColumns(data)
+			db.Model(&product).Where("id = ?", data.ID).UpdateColumns(Product{Name: data.Name, Description: data.Description, Enable: data.Enable})
 		} else {
 			c.JSON(404, "request not found")
 		}
