@@ -1,7 +1,5 @@
 package main
 
-import "github.com/jinzhu/gorm"
-
 type Product struct {
 	ID          int8 `gorm:"primary_key"`
 	Name        string
@@ -31,7 +29,6 @@ type CategoryJSON struct {
 }
 
 type Image struct {
-	gorm.Model
 	ID     int8 `gorm:"primary_key"`
 	Name   string
 	File   string
@@ -46,14 +43,12 @@ type ImageJSON struct {
 }
 
 type Category_Product struct {
-	gorm.Model
 	ID          int8 `gorm:"primary_key"`
 	Product_Id  int8
 	Category_Id int8
 }
 
 type Product_Image struct {
-	gorm.Model
 	ID         int8 `gorm:"primary_key"`
 	Product_Id int8
 	Image_Id   int8

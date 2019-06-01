@@ -16,3 +16,17 @@ INFO : 2019/06/01 18:20:08.572480 main.go:42: Database Connected!
 INFO : 2019/06/01 18:22:22.862069 main.go:42: Database Connected!
 INFO : 2019/06/01 18:23:02.883724 main.go:42: Database Connected!
 INFO : 2019/06/01 18:23:19.998359 main.go:42: Database Connected!
+INFO : 2019/06/01 19:15:32.627554 main.go:42: Database Connected!
+INFO : 2019/06/01 19:17:29.769933 main.go:42: Database Connected!
+INFO : 2019/06/01 19:17:33.431660 InsertProduct.go:29: Data Inserted Succesfully
+INFO : 2019/06/01 19:19:37.493010 main.go:42: Database Connected!
+INFO : 2019/06/01 19:20:02.890790 main.go:42: Database Connected!
+INFO : 2019/06/01 21:01:10.294795 main.go:42: Database Connected!
+ERROR: 2019/06/01 21:02:21.172931 UpdateProduct.go:14: unknown json format invalid character '"' after object key:value pair
+INFO : 2019/06/01 21:06:57.599353 main.go:42: Database Connected!
+ERROR: 2019/06/01 21:07:41.234720 UpdateProduct.go:14: unknown json format json: cannot unmarshal number into Go struct field ProductJSON.enable of type bool
+ERROR: 2019/06/01 21:07:55.042049 UpdateProduct.go:14: unknown json format json: cannot unmarshal number into Go struct field ProductJSON.enable of type bool
+ERROR: 2019/06/01 21:08:33.993253 UpdateProduct.go:14: unknown json format json: cannot unmarshal string into Go struct field ProductJSON.enable of type bool
+INFO : 2019/06/01 21:10:32.326724 main.go:42: Database Connected!
+INFO : 2019/06/01 21:10:52.131130 main.go:42: Database Connected!
+INFO : 2019/06/01 21:11:21.997432 main.go:42: Database Connected!

@@ -34,36 +34,36 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: category_products; Type: TABLE; Schema: public; Owner: postgres
+-- Name: category; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.category_products (
-    product_id bigint NOT NULL,
-    category_id bigint NOT NULL,
-    id bigint DEFAULT nextval('public.serial'::regclass) NOT NULL
-);
-
-
-ALTER TABLE public.category_products OWNER TO postgres;
-
---
--- Name: categorys; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.categorys (
+CREATE TABLE public.category (
     id bigint DEFAULT nextval('public.serial'::regclass) NOT NULL,
     name text NOT NULL,
     enable boolean NOT NULL
 );
 
 
-ALTER TABLE public.categorys OWNER TO postgres;
+ALTER TABLE public.category OWNER TO postgres;
 
 --
--- Name: images; Type: TABLE; Schema: public; Owner: postgres
+-- Name: category_product; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.images (
+CREATE TABLE public.category_product (
+    product_id bigint NOT NULL,
+    category_id bigint NOT NULL,
+    id bigint DEFAULT nextval('public.serial'::regclass) NOT NULL
+);
+
+
+ALTER TABLE public.category_product OWNER TO postgres;
+
+--
+-- Name: image; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.image (
     id bigint DEFAULT nextval('public.serial'::regclass) NOT NULL,
     name text NOT NULL,
     file text NOT NULL,
@@ -71,26 +71,13 @@ CREATE TABLE public.images (
 );
 
 
-ALTER TABLE public.images OWNER TO postgres;
+ALTER TABLE public.image OWNER TO postgres;
 
 --
--- Name: product_images; Type: TABLE; Schema: public; Owner: postgres
+-- Name: product; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.product_images (
-    id bigint DEFAULT nextval('public.serial'::regclass) NOT NULL,
-    product_id bigint NOT NULL,
-    image_id bigint NOT NULL
-);
-
-
-ALTER TABLE public.product_images OWNER TO postgres;
-
---
--- Name: products; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.products (
+CREATE TABLE public.product (
     id bigint DEFAULT nextval('public.serial'::regclass) NOT NULL,
     name text,
     description text,
@@ -98,45 +85,50 @@ CREATE TABLE public.products (
 );
 
 
-ALTER TABLE public.products OWNER TO postgres;
+ALTER TABLE public.product OWNER TO postgres;
 
 --
--- Data for Name: category_products; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Name: product_image; Type: TABLE; Schema: public; Owner: postgres
 --
 
-COPY public.category_products (product_id, category_id, id) FROM stdin;
+CREATE TABLE public.product_image (
+    id bigint DEFAULT nextval('public.serial'::regclass) NOT NULL,
+    product_id bigint NOT NULL,
+    image_id bigint NOT NULL
+);
+
+
+ALTER TABLE public.product_image OWNER TO postgres;
+
+--
+-- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.category (id, name, enable) FROM stdin;
 \.
 
 
 --
--- Data for Name: categorys; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: category_product; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.categorys (id, name, enable) FROM stdin;
+COPY public.category_product (product_id, category_id, id) FROM stdin;
 \.
 
 
 --
--- Data for Name: images; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: image; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.images (id, name, file, enable) FROM stdin;
+COPY public.image (id, name, file, enable) FROM stdin;
 \.
 
 
 --
--- Data for Name: product_images; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: product; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.product_images (id, product_id, image_id) FROM stdin;
-\.
-
-
---
--- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.products (id, name, description, enable) FROM stdin;
+COPY public.product (id, name, description, enable) FROM stdin;
 101			f
 102			f
 103	API	Interface to get access to database	f
@@ -152,6 +144,15 @@ COPY public.products (id, name, description, enable) FROM stdin;
 113	Signature	handwriting signature	t
 114	Signature	handwriting signature	t
 115	Signature	handwriting signature	t
+116	Signature	handwriting signature	t
+\.
+
+
+--
+-- Data for Name: product_image; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.product_image (id, product_id, image_id) FROM stdin;
 \.
 
 
@@ -159,38 +160,38 @@ COPY public.products (id, name, description, enable) FROM stdin;
 -- Name: serial; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.serial', 115, true);
+SELECT pg_catalog.setval('public.serial', 116, true);
 
 
 --
--- Name: categorys category_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: category category_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.categorys
+ALTER TABLE ONLY public.category
     ADD CONSTRAINT category_pk PRIMARY KEY (id);
 
 
 --
--- Name: images image_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: image image_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.images
+ALTER TABLE ONLY public.image
     ADD CONSTRAINT image_pk PRIMARY KEY (id);
 
 
 --
--- Name: product_images product_image_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: product_image product_image_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.product_images
+ALTER TABLE ONLY public.product_image
     ADD CONSTRAINT product_image_pk PRIMARY KEY (id);
 
 
 --
--- Name: products product_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: product product_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.products
+ALTER TABLE ONLY public.product
     ADD CONSTRAINT product_pk PRIMARY KEY (id);
 
 
@@ -198,67 +199,67 @@ ALTER TABLE ONLY public.products
 -- Name: category_product_product_id_idx; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE UNIQUE INDEX category_product_product_id_idx ON public.category_products USING btree (product_id);
+CREATE UNIQUE INDEX category_product_product_id_idx ON public.category_product USING btree (product_id);
 
 
 --
 -- Name: image_id_idx; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE UNIQUE INDEX image_id_idx ON public.images USING btree (id);
+CREATE UNIQUE INDEX image_id_idx ON public.image USING btree (id);
 
 
 --
 -- Name: newtable_id_idx; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE UNIQUE INDEX newtable_id_idx ON public.categorys USING btree (id);
+CREATE UNIQUE INDEX newtable_id_idx ON public.category USING btree (id);
 
 
 --
 -- Name: product_id_idx; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE UNIQUE INDEX product_id_idx ON public.products USING btree (id);
+CREATE UNIQUE INDEX product_id_idx ON public.product USING btree (id);
 
 
 --
 -- Name: product_image_id_idx; Type: INDEX; Schema: public; Owner: postgres
 --
 
-CREATE UNIQUE INDEX product_image_id_idx ON public.product_images USING btree (id, product_id, image_id);
+CREATE UNIQUE INDEX product_image_id_idx ON public.product_image USING btree (id, product_id, image_id);
 
 
 --
--- Name: category_products category_product_category_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: category_product category_product_category_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.category_products
-    ADD CONSTRAINT category_product_category_fk FOREIGN KEY (id) REFERENCES public.categorys(id);
-
-
---
--- Name: category_products category_product_product_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.category_products
-    ADD CONSTRAINT category_product_product_fk FOREIGN KEY (id) REFERENCES public.products(id);
+ALTER TABLE ONLY public.category_product
+    ADD CONSTRAINT category_product_category_fk FOREIGN KEY (id) REFERENCES public.category(id);
 
 
 --
--- Name: product_images product_image_image_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: category_product category_product_product_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.product_images
-    ADD CONSTRAINT product_image_image_fk FOREIGN KEY (id) REFERENCES public.images(id);
+ALTER TABLE ONLY public.category_product
+    ADD CONSTRAINT category_product_product_fk FOREIGN KEY (id) REFERENCES public.product(id);
 
 
 --
--- Name: product_images product_image_product_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: product_image product_image_image_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.product_images
-    ADD CONSTRAINT product_image_product_fk FOREIGN KEY (id) REFERENCES public.products(id);
+ALTER TABLE ONLY public.product_image
+    ADD CONSTRAINT product_image_image_fk FOREIGN KEY (id) REFERENCES public.image(id);
+
+
+--
+-- Name: product_image product_image_product_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.product_image
+    ADD CONSTRAINT product_image_product_fk FOREIGN KEY (id) REFERENCES public.product(id);
 
 
 --

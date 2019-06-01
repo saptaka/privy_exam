@@ -3,9 +3,9 @@ package main
 import "github.com/gin-gonic/gin"
 
 func GetImage(c *gin.Context) {
-	var product []Product
+	var image []Image
 	name := c.Param("name")
-	db.Where("name = ?", name).Find(&product)
+	db.Where("name = ?", name).Find(&image)
 
-	c.JSON(200, product)
+	c.JSON(200, image)
 }

@@ -40,6 +40,7 @@ func main() {
 		logger.Fatalf("Failed to connect database: %v", errConnectDB)
 	} else {
 		logger.Infoln("Database Connected!")
+		db.SingularTable(true)
 	}
 
 	api := gin.Default()
@@ -48,10 +49,14 @@ func main() {
 	api.GET("/image/:name", GetImage)
 
 	api.Use(InsertCaterogyProduct)
-	api.POST("/insertProduct", InsertProduct)
 
+	api.POST("/insertProduct", InsertProduct)
 	api.POST("/insertCategory", InsertCategory)
 	api.POST("/insertImage", InsertImage)
+
+	api.POST("/setProduct/:column", UpdateProduct)
+	api.POST("/setCategory/:column", UpdateCategory)
+	api.POST("/settImage/:column", UpdateImage)
 
 	api.Run(":8898")
 
