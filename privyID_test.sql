@@ -15,63 +15,6 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
 
-SET default_tablespace = '';
-
-SET default_with_oids = false;
-
---
--- Name: category_products; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.category_products (
-    product_id bigint NOT NULL,
-    category_id bigint NOT NULL,
-    id bigint NOT NULL
-);
-
-
-ALTER TABLE public.category_products OWNER TO postgres;
-
---
--- Name: categorys; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.categorys (
-    id bigint NOT NULL,
-    name text NOT NULL,
-    enable boolean NOT NULL
-);
-
-
-ALTER TABLE public.categorys OWNER TO postgres;
-
---
--- Name: images; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.images (
-    id bigint NOT NULL,
-    name text NOT NULL,
-    file text NOT NULL,
-    enable boolean NOT NULL
-);
-
-
-ALTER TABLE public.images OWNER TO postgres;
-
---
--- Name: product_images; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.product_images (
-    id bigint NOT NULL,
-    product_id bigint NOT NULL,
-    image_id bigint NOT NULL
-);
-
-
-ALTER TABLE public.product_images OWNER TO postgres;
-
 --
 -- Name: serial; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -85,6 +28,63 @@ CREATE SEQUENCE public.serial
 
 
 ALTER TABLE public.serial OWNER TO postgres;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: category_products; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.category_products (
+    product_id bigint NOT NULL,
+    category_id bigint NOT NULL,
+    id bigint DEFAULT nextval('public.serial'::regclass) NOT NULL
+);
+
+
+ALTER TABLE public.category_products OWNER TO postgres;
+
+--
+-- Name: categorys; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.categorys (
+    id bigint DEFAULT nextval('public.serial'::regclass) NOT NULL,
+    name text NOT NULL,
+    enable boolean NOT NULL
+);
+
+
+ALTER TABLE public.categorys OWNER TO postgres;
+
+--
+-- Name: images; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.images (
+    id bigint DEFAULT nextval('public.serial'::regclass) NOT NULL,
+    name text NOT NULL,
+    file text NOT NULL,
+    enable boolean NOT NULL
+);
+
+
+ALTER TABLE public.images OWNER TO postgres;
+
+--
+-- Name: product_images; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.product_images (
+    id bigint DEFAULT nextval('public.serial'::regclass) NOT NULL,
+    product_id bigint NOT NULL,
+    image_id bigint NOT NULL
+);
+
+
+ALTER TABLE public.product_images OWNER TO postgres;
 
 --
 -- Name: products; Type: TABLE; Schema: public; Owner: postgres
@@ -149,6 +149,9 @@ COPY public.products (id, name, description, enable) FROM stdin;
 110	api	interface to procced data into database	t
 111	Signature	handwriting signature	t
 112	Signature	handwriting signature	t
+113	Signature	handwriting signature	t
+114	Signature	handwriting signature	t
+115	Signature	handwriting signature	t
 \.
 
 
@@ -156,7 +159,7 @@ COPY public.products (id, name, description, enable) FROM stdin;
 -- Name: serial; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.serial', 112, true);
+SELECT pg_catalog.setval('public.serial', 115, true);
 
 
 --

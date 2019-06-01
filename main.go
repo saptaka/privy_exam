@@ -20,16 +20,6 @@ var (
 	errConnectDB error
 )
 
-func InsertCategory(c *gin.Context) {
-	resp := map[string]string{"hello": "world"}
-	c.JSON(200, resp)
-}
-
-func GetProduct(c *gin.Context) {
-	resp := map[string]string{"hello": "world"}
-	c.JSON(200, resp)
-}
-
 func InsertCaterogyProduct(c *gin.Context) {
 	fmt.Println("Im a dummy!")
 
@@ -50,13 +40,19 @@ func main() {
 		logger.Fatalf("Failed to connect database: %v", errConnectDB)
 	} else {
 		logger.Infoln("Database Connected!")
-
 	}
 
 	api := gin.Default()
-	api.GET("/product", GetProduct)
-	api.POST("/insertProduct", InsertProduct)
+	api.GET("/product/:name", GetProduct)
+	api.GET("/category/:name", GetCategory)
+	api.GET("/image/:name", GetImage)
+
 	api.Use(InsertCaterogyProduct)
+	api.POST("/insertProduct", InsertProduct)
+
+	api.POST("/insertCategory", InsertCategory)
+	api.POST("/insertImage", InsertImage)
+
 	api.Run(":8898")
 
 }

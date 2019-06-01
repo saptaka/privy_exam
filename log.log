@@ -1,3 +1,18 @@
 INFO : 2019/06/01 17:07:25.432733 main.go:52: Database Connected!
 ERROR: 2019/06/01 17:07:30.754883 InsertProduct.go:16: unknown json format invalid character '"' after object key:value pair
 INFO : 2019/06/01 17:07:57.088461 InsertProduct.go:29: Data Inserted Succesfully
+INFO : 2019/06/01 18:06:29.537406 main.go:42: Database Connected!
+INFO : 2019/06/01 18:06:33.608939 InsertProduct.go:29: Data Inserted Succesfully
+INFO : 2019/06/01 18:07:35.954959 main.go:42: Database Connected!
+INFO : 2019/06/01 18:07:41.806339 InsertProduct.go:29: Data Inserted Succesfully
+INFO : 2019/06/01 18:08:23.014555 main.go:42: Database Connected!
+INFO : 2019/06/01 18:08:27.318366 InsertProduct.go:29: Data Inserted Succesfully
+INFO : 2019/06/01 18:12:59.409808 main.go:42: Database Connected!
+INFO : 2019/06/01 18:13:02.200849 InsertProduct.go:29: Data Inserted Succesfully
+INFO : 2019/06/01 18:17:49.747893 main.go:42: Database Connected!
+INFO : 2019/06/01 18:18:18.887114 main.go:42: Database Connected!
+INFO : 2019/06/01 18:19:10.272156 main.go:42: Database Connected!
+INFO : 2019/06/01 18:20:08.572480 main.go:42: Database Connected!
+INFO : 2019/06/01 18:22:22.862069 main.go:42: Database Connected!
+INFO : 2019/06/01 18:23:02.883724 main.go:42: Database Connected!
+INFO : 2019/06/01 18:23:19.998359 main.go:42: Database Connected!

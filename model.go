@@ -23,7 +23,7 @@ type Category struct {
 	Enable      bool
 }
 
-type CategoryJOSN struct {
+type CategoryJSON struct {
 	ID          int8   `json:"id"`
 	Name        string `json:"name"`
 	Description string `json:"description"`
