@@ -1,43 +1,4 @@
-INFO : 2019/06/01 17:07:25.432733 main.go:52: Database Connected!
-ERROR: 2019/06/01 17:07:30.754883 InsertProduct.go:16: unknown json format invalid character '"' after object key:value pair
-INFO : 2019/06/01 17:07:57.088461 InsertProduct.go:29: Data Inserted Succesfully
-INFO : 2019/06/01 18:06:29.537406 main.go:42: Database Connected!
-INFO : 2019/06/01 18:06:33.608939 InsertProduct.go:29: Data Inserted Succesfully
-INFO : 2019/06/01 18:07:35.954959 main.go:42: Database Connected!
-INFO : 2019/06/01 18:07:41.806339 InsertProduct.go:29: Data Inserted Succesfully
-INFO : 2019/06/01 18:08:23.014555 main.go:42: Database Connected!
-INFO : 2019/06/01 18:08:27.318366 InsertProduct.go:29: Data Inserted Succesfully
-INFO : 2019/06/01 18:12:59.409808 main.go:42: Database Connected!
-INFO : 2019/06/01 18:13:02.200849 InsertProduct.go:29: Data Inserted Succesfully
-INFO : 2019/06/01 18:17:49.747893 main.go:42: Database Connected!
-INFO : 2019/06/01 18:18:18.887114 main.go:42: Database Connected!
-INFO : 2019/06/01 18:19:10.272156 main.go:42: Database Connected!
-INFO : 2019/06/01 18:20:08.572480 main.go:42: Database Connected!
-INFO : 2019/06/01 18:22:22.862069 main.go:42: Database Connected!
-INFO : 2019/06/01 18:23:02.883724 main.go:42: Database Connected!
-INFO : 2019/06/01 18:23:19.998359 main.go:42: Database Connected!
-INFO : 2019/06/01 19:15:32.627554 main.go:42: Database Connected!
-INFO : 2019/06/01 19:17:29.769933 main.go:42: Database Connected!
-INFO : 2019/06/01 19:17:33.431660 InsertProduct.go:29: Data Inserted Succesfully
-INFO : 2019/06/01 19:19:37.493010 main.go:42: Database Connected!
-INFO : 2019/06/01 19:20:02.890790 main.go:42: Database Connected!
-INFO : 2019/06/01 21:01:10.294795 main.go:42: Database Connected!
-ERROR: 2019/06/01 21:02:21.172931 UpdateProduct.go:14: unknown json format invalid character '"' after object key:value pair
-INFO : 2019/06/01 21:06:57.599353 main.go:42: Database Connected!
-ERROR: 2019/06/01 21:07:41.234720 UpdateProduct.go:14: unknown json format json: cannot unmarshal number into Go struct field ProductJSON.enable of type bool
-ERROR: 2019/06/01 21:07:55.042049 UpdateProduct.go:14: unknown json format json: cannot unmarshal number into Go struct field ProductJSON.enable of type bool
-ERROR: 2019/06/01 21:08:33.993253 UpdateProduct.go:14: unknown json format json: cannot unmarshal string into Go struct field ProductJSON.enable of type bool
-INFO : 2019/06/01 21:10:32.326724 main.go:42: Database Connected!
-INFO : 2019/06/01 21:10:52.131130 main.go:42: Database Connected!
-INFO : 2019/06/01 21:11:21.997432 main.go:42: Database Connected!
-INFO : 2019/06/01 23:07:27.263003 main.go:42: Database Connected!
-INFO : 2019/06/01 23:08:28.600994 main.go:42: Database Connected!
-INFO : 2019/06/01 23:09:06.513504 main.go:42: Database Connected!
-INFO : 2019/06/01 23:09:55.168461 main.go:42: Database Connected!
-INFO : 2019/06/01 23:10:07.399592 main.go:42: Database Connected!
-INFO : 2019/06/01 23:11:02.710518 main.go:42: Database Connected!
-INFO : 2019/06/01 23:13:36.450778 main.go:42: Database Connected!
-INFO : 2019/06/01 23:16:06.096373 main.go:42: Database Connected!
-INFO : 2019/06/01 23:17:58.811997 main.go:42: Database Connected!
-INFO : 2019/06/01 23:18:09.655911 main.go:42: Database Connected!
-INFO : 2019/06/01 23:21:00.232821 main.go:42: Database Connected!
+INFO : 2019/06/02 05:02:09.994447 main.go:63: Database Connected!
+FATAL: 2019/06/10 21:23:03.715802 main.go:61: Failed to connect database: dial tcp [::1]:5432: connect: connection refused
+INFO : 2019/06/10 21:23:54.009685 main.go:63: Database Connected!
+INFO : 2019/06/10 21:25:20.316431 main.go:63: Database Connected!

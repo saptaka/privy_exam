@@ -1,8 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
+	"io/ioutil"
+	"log"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -11,19 +14,37 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
-const logPath = "log.log"
+type Config struct {
+	Port    string `json:"port"`
+	LogPath string `json:"log_path"`
+}
 
 var verbose = flag.Bool("verbose", false, "print info level logs to stdout")
 
 var (
 	db           *gorm.DB
 	errConnectDB error
+	port         string
+	logPath      string
+	config       Config
 )
 
 func InsertCaterogyProduct(c *gin.Context) {
 	fmt.Println("Im a dummy!")
 
 	c.Next()
+}
+
+func init() {
+	fileConfig, err := os.Open("config.json")
+
+	if err != nil {
+		log.Fatal("File config.json not found")
+	}
+	byteConfig, _ := ioutil.ReadAll(fileConfig)
+	json.Unmarshal(byteConfig, &config)
+	port = config.Port
+	logPath = config.LogPath + "log.log"
 }
 
 func main() {
@@ -33,7 +54,7 @@ func main() {
 	}
 	defer logFile.Close()
 
-	defer logger.Init("LogginSystem", *verbose, true, logFile).Close()
+	defer logger.Init("LoggingSystem", *verbose, true, logFile).Close()
 
 	db, errConnectDB = gorm.Open("postgres", "host=localhost port=5432 user=postgres dbname=privyID_test password=halopsql sslmode=disable")
 	if errConnectDB != nil {
@@ -47,8 +68,8 @@ func main() {
 	api.GET("/product/:name", GetProduct)
 	api.GET("/category/:name", GetCategory)
 	api.GET("/image/:name", GetImage)
-
-	api.Use(InsertCaterogyProduct)
+	api.GET("/categoryProduct", GetCategoryProduct)
+	api.GET("/imageProduct", GetImageProduct)
 
 	api.POST("/insertProduct", InsertProduct)
 	api.POST("/insertCategory", InsertCategory)
@@ -60,8 +81,8 @@ func main() {
 
 	api.DELETE("/delProduct/:id", DeleteProduct)
 	api.DELETE("/delCategory/:id", DeleteCategory)
-	api.DELETE("/deltImage/:id", DeleteImage)
+	api.DELETE("/delImage/:id", DeleteImage)
 
-	api.Run(":8898")
+	api.Run(":" + port)
 
 }
