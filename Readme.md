@@ -16,6 +16,10 @@
 **How to run**
 go run .
 
+**How to Build**
+go build
+
+
 **API**
 this application use port 8988
 
