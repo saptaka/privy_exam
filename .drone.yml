@@ -16,7 +16,6 @@ steps:
   - go build
   - go test
   
-
 trigger:
   branch:
   - master
