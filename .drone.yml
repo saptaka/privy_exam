@@ -15,9 +15,21 @@ steps:
   commands:
   - go build
   - go test
-  
+
+ - name: deploy
+   image: docker
+   commands:
+    - go mod tidy
+    - go mod vendor
+    - go run .
+  volumes:
+  - name: docker
+    path: /var/run/docker.sock
+
 trigger:
   branch:
   - master
   event:
   - push
+
+ 
