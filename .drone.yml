@@ -6,6 +6,11 @@ steps:
   image: docker:git
   commands:
   - git clone https://github.com/saptaka/privy_exam.git
+  trigger:
+  branch:
+  - master
+  event:
+  - push
 
 - name: build
   image: golang
@@ -24,8 +29,3 @@ steps:
   - name: docker
     path: /var/run/docker.sock
 
-trigger:
-  branch:
-  - master
-  event:
-  - push
