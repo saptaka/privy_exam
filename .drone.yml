@@ -1,5 +1,5 @@
 kind: pipeline
-name: default
+name: privy
 
 clone:
   disable: true
@@ -21,7 +21,8 @@ steps:
    commands:
     - go mod tidy
     - go mod vendor
-    - go run .
+    - go build 
+    - ./privyID
   volumes:
   - name: docker
     path: /var/run/docker.sock
