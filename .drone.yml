@@ -1,9 +1,6 @@
 kind: pipeline
 name: privy
 
-clone:
-  disable: true
-
 steps:
 - name: clone
   image: docker:git
