@@ -2,7 +2,6 @@ kind: pipeline
 name: privy
 
 steps:
-
 - name: build
   image: golang
   commands:
