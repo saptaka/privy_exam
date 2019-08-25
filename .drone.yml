@@ -17,7 +17,7 @@ steps:
   - go test
 
  - name: deploy
-   image: docker
+   image: golang/alpine
    commands:
     - go mod tidy
     - go mod vendor
