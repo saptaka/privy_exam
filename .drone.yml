@@ -10,12 +10,12 @@ steps:
   - go test
 
  - name: deploy
-   image: golang/alpine
+   image: alphine
    commands:
     - go mod tidy
     - go mod vendor
     - go build 
-    - ./privyID
+    - ./privy
     trigger:
     branch:
     - master
