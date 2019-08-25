@@ -2,11 +2,6 @@ kind: pipeline
 name: privy
 
 steps:
-- name: clone
-  image: docker:git
-  commands:
-  - git clone https://github.com/saptaka/privy_exam.git
-
 
 - name: build
   image: golang
