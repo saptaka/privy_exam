@@ -21,7 +21,5 @@ steps:
     - master
     event:
     - push
-  volumes:
-  - name: docker
-    path: /var/run/docker.sock
+ 
 
