@@ -27,6 +27,3 @@ steps:
     event:
     - push
     
-  platform:
-    os: linux
-    arch: arm
