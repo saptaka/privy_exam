@@ -5,6 +5,7 @@ pipeline:
   build:
     image: golang:latest
     commands:
-      - go get ./...
+      - go mod tidy
+      - go mod vendor
       - go test
       - go build
