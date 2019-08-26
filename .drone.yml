@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 
 steps:
-- name: deployment
+- name: deploy
   image: docker
   commands:
   - docker build . -t privy:1.0
