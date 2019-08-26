@@ -52,8 +52,7 @@ func main() {
 	if err != nil {
 		logger.Fatalf("Failed to open log file: %v", err)
 	}
-	defer logFile.Close()
-
+	// defer logFile.Close()
 	defer logger.Init("LoggingSystem", *verbose, true, logFile).Close()
 
 	db, errConnectDB = gorm.Open("postgres", "host=localhost port=5432 user=postgres dbname=privyID_test password=halopsql sslmode=disable")
