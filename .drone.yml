@@ -16,7 +16,7 @@ steps:
   - nohup ./privyID &
 
 - name: deploy
-  image: docker
+  image: docker:dind
   commands:
   - docker run --name privy alpine
 
