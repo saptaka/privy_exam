@@ -12,7 +12,7 @@ steps:
   - go mod tidy
   - go mod vendor
   - CGO_ENABLED=0 GOOS=linux go build
-  - ./privyID
+  - nohup ./privyID &
 
 trigger:
   branch:
