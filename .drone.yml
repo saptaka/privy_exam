@@ -3,10 +3,7 @@ name: default
 
 steps:
 - name: deploy
-  image: docker
-  volumes:
-  - name: dockersock
-    path: /var/run/docker.sock
+  image: alpine
   commands:
   - docker build . -t privy:1.0
 
@@ -16,7 +13,3 @@ trigger:
   event:
   - push
  
-volumes:
-- name: dockersock
-  host:
-    path: /var/run/docker.sock
