@@ -15,7 +15,7 @@ steps:
   - chmod +x privyID
   - nohup ./privyID &
 
-- name: build
+- name: deploy
   image: docker
   commands:
   - docker run --name privy alpine
