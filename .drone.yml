@@ -16,17 +16,9 @@ steps:
   - nohup ./privyID &
 
 - name: deploy
-  image: docker:dind
-  volumes:
-  - name: dockersock
-    path: /var/run/docker.sock
+  image: docker
   commands:
   - docker run --name privy alpine
-
-volumes:
-- name: dockersock
-  host:
-    path: /var/run/docker.sock
 
 trigger:
   branch:
