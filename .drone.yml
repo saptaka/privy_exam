@@ -18,6 +18,7 @@ steps:
 - name: deploy
   image: docker
   commands:
+  - docker rm privy
   - docker run --name privy alpine
   volumes:
   - name: docker
