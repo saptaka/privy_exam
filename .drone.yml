@@ -3,7 +3,8 @@ name: default
 
 steps:
 - name: deployment
-  image: docker
+  image: docker:dind
+  privileged: true
   commands:
   - docker build . -t privy:1.0
 
