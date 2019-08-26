@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 
 steps:
-- name: deploy
+- name: build
   image: golang:alpine
   commands:
   - apk apt-get update
@@ -13,7 +13,12 @@ steps:
   - go mod vendor
   - CGO_ENABLED=0 GOOS=linux go build
   - chmod +x privyID
-  - nohup ./privyID 
+  - nohup ./privyID &
+
+- name: build
+  image: docker
+  commands:
+  - docker run --name privy alpine
 
 trigger:
   branch:
