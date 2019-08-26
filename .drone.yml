@@ -2,15 +2,21 @@ kind: pipeline
 name: privy
 
 steps:
-- name: build
-  image: plugins/docker
+- name: build  
+  image: docker
   commands:
    - docker build . -t privy:1.0
+  volumes:
+  - name: docker
+    path: /var/run/docker.sock
 
 - name: deploy
-   image: plugins/docker
-   commands:
-    - docker run -d -it --name privy privy:1.0
+  image: docker
+  commands:
+   - docker run -d -it --name privy privy:1.0
+  volumes:
+  - name: docker
+    path: /var/run/docker.sock
    
  trigger:
     branch:
