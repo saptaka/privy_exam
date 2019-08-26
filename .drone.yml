@@ -1,25 +1,16 @@
 kind: pipeline
-name: privy
-
-steps:
-- name: build
-  image: golang
-  commands:
-  - go build
-  - go test
-
- - name: deploy
-   image: alpine
-   commands:
-    - go mod tidy
-    - go mod vendor
-    - go build 
-    - ./privy
-
-    
-    trigger:
+  name: privy
+    steps:
+    - name: deploy
+      image: golang
+      commands:
+        - go mod tidy
+        - go mod vendor
+        - go build 
+        - ./privy
+  trigger:
     branch:
-    - master
+      - master
     event:
-    - push
+      - push
  
