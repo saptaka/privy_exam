@@ -3,13 +3,10 @@ name: default
 
 steps:
 - name: deploy
-  image: golang
+  image: docker
   commands:
-  - go mod tidy
-  - go mod vendor
-  - go build 
-  - ./privy
-  
+  - docker build . -t privy:1.0
+
 trigger:
   branch:
   - master
