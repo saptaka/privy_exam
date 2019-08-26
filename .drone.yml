@@ -1,29 +1,10 @@
 kind: pipeline
 name: privy_test
 
-steps:
-- name: build  
-  image: docker
-  commands:
-   - docker build . -t privy:1.0
-  volumes:
-  - name: docker
-    path: /var/run/docker.sock
-
-- name: deploy
-  image: docker
-  commands:
-   - docker run -d -it --name privy privy:1.0
-  when:
-    event:
-      - push
-  volumes:
-  - name: docker
-    path: /var/run/docker.sock
-   
- trigger:
-    branch:
-    - master
-    event:
-    - push
-    
+pipeline:
+  build:
+    image: golang:latest
+    commands:
+      - go get ./...
+      - go test
+      - go build
