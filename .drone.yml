@@ -6,9 +6,9 @@ steps:
   image: golang:alpine
   commands:
   - apk apt-get update
-  - apk update && \
-    apk upgrade && \
-    apk add git
+  - apk update 
+  - apk upgrade 
+  - apk add git
   - go mod tidy
   - go mod vendor
   - CGO_ENABLED=0 GOOS=linux go build
