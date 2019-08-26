@@ -9,7 +9,7 @@ steps:
   - go test
 
  - name: deploy
-   image: alphine
+   image: alpine
    commands:
     - go mod tidy
     - go mod vendor
