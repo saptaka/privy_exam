@@ -19,6 +19,14 @@ steps:
   image: docker:dind
   commands:
   - docker run --name privy alpine
+  volumes:
+  - name: docker
+    path: /var/run/docker.sock
+
+volumes:
+- name: docker
+  host:
+    path: /var/run/docker.sock
 
 trigger:
   branch:
