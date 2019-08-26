@@ -4,7 +4,7 @@ name: default
 steps:
 - name: deploy
   image: docker:dind
-volumes:
+  volumes:
   - name: dockersock
     path: /var/run/docker.sock
   commands:
