@@ -76,7 +76,7 @@ func main() {
 
 	api.PUT("/setProduct/:column", UpdateProduct)
 	api.PUT("/setCategory/:column", UpdateCategory)
-	api.PUT("/setImage/:column", UpdateImage)
+	// api.PUT("/setImage/:column", UpdateImage)
 
 	api.DELETE("/delProduct/:id", DeleteProduct)
 	api.DELETE("/delCategory/:id", DeleteCategory)
