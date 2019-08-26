@@ -1,5 +1,5 @@
 kind: pipeline
-name: privy
+name: privy_test
 
 steps:
 - name: build  
