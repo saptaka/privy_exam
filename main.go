@@ -53,7 +53,6 @@ func main() {
 		logger.Fatalf("Failed to open log file: %v", err)
 	}
 	defer logFile.Close()
-
 	defer logger.Init("LoggingSystem", *verbose, true, logFile).Close()
 
 	db, errConnectDB = gorm.Open("postgres", "host=localhost port=5432 user=postgres dbname=privyID_test password=halopsql sslmode=disable")
@@ -77,7 +76,7 @@ func main() {
 
 	api.PUT("/setProduct/:column", UpdateProduct)
 	api.PUT("/setCategory/:column", UpdateCategory)
-	api.PUT("/setImage/:column", UpdateImage)
+	// api.PUT("/setImage/:column", UpdateImage)
 
 	api.DELETE("/delProduct/:id", DeleteProduct)
 	api.DELETE("/delCategory/:id", DeleteCategory)

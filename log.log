@@ -1,4 +1,0 @@
-INFO : 2019/06/02 05:02:09.994447 main.go:63: Database Connected!
-FATAL: 2019/06/10 21:23:03.715802 main.go:61: Failed to connect database: dial tcp [::1]:5432: connect: connection refused
-INFO : 2019/06/10 21:23:54.009685 main.go:63: Database Connected!
-INFO : 2019/06/10 21:25:20.316431 main.go:63: Database Connected!
