@@ -26,3 +26,7 @@ steps:
     - master
     event:
     - push
+    
+  platform:
+    os: linux
+    arch: arm
