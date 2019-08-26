@@ -3,21 +3,17 @@ name: privy
 
 steps:
 - name: build
-  image: golang:alpine
+  image: plugins/docker
   commands:
-  - go mod tidy
-  - go mod vendor
-  - go build
-  - go test
+   - docker build . -t privy:1.0
 
- - name: deploy
-   image: golang:alpine
+- name: deploy
+   image: plugins/docker
    commands:
-    docker build . -t privy:1.0
-    trigger:
+    - docker run -d -it --name privy privy:1.0
+   
+ trigger:
     branch:
     - master
     event:
     - push
- 
-
